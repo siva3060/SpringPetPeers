@@ -43,14 +43,23 @@ public class PetsAppLatestApplicationTests {
 		userpet= new UserPetDTO();
 	}
 	
+	
 	@Test
-	public void testAddUser() {
-		userDTO.setId(2);
-		Mockito.when(userRepo.save(userModel)).thenReturn(userModel);
-		String message = userService.addUsers(userDTO);			
-	    Assert.assertEquals(userDTO.getId(),userModel.getId() );
-		
-	}
+	public void testAddUser()
+	{ 
+	  userDTO.setId(2);
+	  Mockito.when( userService.addUsers(userDTO)).thenReturn("User saved successfully");
+	  String message = userService.addUsers(userDTO);
+	  Assert.assertEquals(userDTO.getId(),userModel.getId() );
+	  }
+	/*
+	 * @Test public void testAddUser() { userDTO.setId(2);
+	 * Mockito.when(userRepo.save(userModel)).thenReturn(userModel); String message
+	 * = userService.addUsers(userDTO);
+	 * Assert.assertEquals(userDTO.getId(),userModel.getId() );
+	 * 
+	 * }
+	 */
 	/*
 	 * @Test public void testBuyPets() { userpet.setUserID(2); userpet.setPetID(3);
 	 * Mockito.when(userRepo.findById(2)).thenReturn(userOptional); //
